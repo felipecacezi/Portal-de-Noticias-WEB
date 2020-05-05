@@ -8,9 +8,9 @@ module.exports = (app)=>{
 
         let noticia_dados = request.body
         const conn = app.config.db_con()
-        const noticiaModel = app.app.models.noticiaModel
+        const noticiasModel = new app.app.models.noticiasModel(conn)
 
-        noticiaModel.salvarNoticia(noticia_dados, conn, (erro, result)=>{
+        noticiasModel.salvarNoticia(noticia_dados,(erro, result)=>{
             
             response.redirect('/noticias')                
                     

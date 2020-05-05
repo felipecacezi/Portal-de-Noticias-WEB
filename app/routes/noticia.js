@@ -3,9 +3,9 @@ module.exports = (app)=>{
     app.get('/noticia',(request,response)=>{
 
         const conn = app.config.db_con();
-        const noticiaModel = app.app.models.noticiaModel
+        const noticiasModel = new app.app.models.noticiasModel(conn)
 
-        noticiaModel.getNoticia(conn,(erro, result)=>{
+        noticiasModel.getNoticia((erro, result)=>{
 
             if(erro){                
                 response.render('noticias/noticia', { status : 'error', message : erro })                
