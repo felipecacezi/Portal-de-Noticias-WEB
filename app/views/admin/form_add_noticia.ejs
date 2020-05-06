@@ -8,15 +8,42 @@
 
 		<h1>Adicionar notícia</h1>
 
+		<% 
+			let i = 0 
+			let erros_encontrados = ''		
+		%>
+
+		<% if(typeof validacao != 'undefined'){ %>
+			<ul>
+				<% for(i=0; i < validacao.length;i++){ %>
+					<li><%= validacao[i].msg %></li>
+				<% } %>
+			</ul>
+		<% } %>
+		
 		<br>
 
 		<form action="/noticias/salvar" method="POST">
 			<label for="">Titulo</label>
-			<input id="titulo" name="titulo" placeholder="Titulo da Noticia" type="text">
+			<input id="titulo" name="titulo" placeholder="Titulo da Noticia" type="text" value="<%= dados_formulario.titulo %>">
 			<br>
+
+			<label for="">Resumo</label>
+			<input id="resumo" name="resumo" placeholder="Resumo da Noticia" type="text" value="<%= dados_formulario.resumo %>">
+			<br>
+
+			<label for="">Autor</label>
+			<input id="autor" name="autor" placeholder="Autor da Noticia" type="text" value="<%= dados_formulario.autor %>">
+			<br>
+
+			<label for="">Data da Noticia</label>
+			<input id="data_noticia" name="data_noticia" placeholder="Data da Noticia" type="date" value="<%= dados_formulario.data_noticia %>">
+			<br>
+
 			<label for="">Noticia</label>
-			<textarea id="noticia" name="noticia" cols="30" rows="10"></textarea>			
+			<textarea id="noticia" name="noticia" cols="30" rows="10" value="<%= dados_formulario.data_noticia %>"></textarea>			
 			<br>
+
 			<button type="submit">Enviar</button>
 		</form>
 

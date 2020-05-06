@@ -11,7 +11,7 @@ Noticias.prototype.getNoticia = function (callback){
 }
 
 Noticias.prototype.salvarNoticia = function (noticia_dados, callback){
-    this._conn.query(`insert into noticias (titulo, noticia) values ('${noticia_dados.titulo}', '${noticia_dados.noticia}')`, callback)
+    this._conn.query(`insert into noticias set ? `, noticia_dados, callback)
 }
 
 module.exports = ()=>{
