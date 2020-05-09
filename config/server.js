@@ -11,10 +11,13 @@ app.set('views', './app/views')
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(expressValidator())
 
+app.use(express.static('./app/public'))
+
 consign()
     .include('app/routes')
     .then('config/db_con.js')
     .then('app/models')
+    .then('app/controllers')
     .into(app)
 
 

@@ -1,7 +1,7 @@
 module.exports = (app)=>{
 
     app.get('/',(request,response)=>{
-        response.render('home/index')
+        app.app.controllers.home.home(app,request, response)
     })
 
 }
